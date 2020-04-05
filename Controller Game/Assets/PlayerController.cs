@@ -9,11 +9,13 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D PlayerRb;
     public int Speed;
     public float JumpChanceTimer;
+    public bool CanJump;
     // Start is called before the first frame update
     void Start()
     {
         JumpChanceCountdown = JumpChanceTimer;
         ChanceToJump = 3;
+        CanJump = true;
     }
 
     // Update is called once per frame
@@ -33,7 +35,7 @@ public class PlayerController : MonoBehaviour
             ChanceToJump = Random.Range(0, 3);
         }
 
-        if (ChanceToJump == 0)
+        if (ChanceToJump == 0 && CanJump)
         {
             Jump();
             ChanceToJump = 3;
@@ -44,9 +46,9 @@ public class PlayerController : MonoBehaviour
             return;
         }
     }
-    void Jump()
+    public void Jump()
     {
-        PlayerRb.AddForce(new Vector2(1, 10), ForceMode2D.Impulse);
+        PlayerRb.AddForce(new Vector2(1, 7), ForceMode2D.Impulse);
     }
 
 }
