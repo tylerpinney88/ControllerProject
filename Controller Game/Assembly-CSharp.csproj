@@ -61,9 +61,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\BlockController.cs" />
+    <Compile Include="Assets\BombController.cs" />
+    <Compile Include="Assets\BottomController.cs" />
     <Compile Include="Assets\CameraController.cs" />
+    <Compile Include="Assets\CoinController.cs" />
     <Compile Include="Assets\GroundCheck.cs" />
     <Compile Include="Assets\JumpCheck.cs" />
+    <Compile Include="Assets\LevelFinish.cs" />
+    <Compile Include="Assets\MainMenu.cs" />
     <Compile Include="Assets\PlayerController.cs" />
     <Compile Include="Assets\SpawnableController.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">

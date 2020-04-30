@@ -15,7 +15,7 @@ public class SpawnableController : MonoBehaviour
     {
         Bomb.SetActive (false);
         Coin.SetActive(false);
-        ChanceToGenerate = Random.Range(ChanceToGenerateMin, ChanceToGenerateMax);
+        RandomizeLevel();
     }
 
 
@@ -30,5 +30,17 @@ public class SpawnableController : MonoBehaviour
         {
             Coin.SetActive(true);
         }
+
+        if (ChanceToGenerate != 1 && ChanceToGenerate != 0)
+        {
+            Bomb.SetActive(false);
+            Coin.SetActive(false);
+        }
+    }
+
+    public void RandomizeLevel()
+    {
+        ChanceToGenerate = 3;
+        ChanceToGenerate = Random.Range(ChanceToGenerateMin, ChanceToGenerateMax);
     }
 }
