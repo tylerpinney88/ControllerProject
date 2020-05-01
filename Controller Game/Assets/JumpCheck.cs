@@ -19,6 +19,7 @@ public class JumpCheck : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //checks if the player is on the ground
         if (collision.gameObject.CompareTag("Ground"))
         {
             Debug.Log("jump");

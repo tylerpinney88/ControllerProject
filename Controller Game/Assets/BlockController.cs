@@ -14,6 +14,7 @@ public class BlockController : MonoBehaviour
 
     void Update()
     {
+        //Toggles each Hardcoded control to on and off
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             Block1Active = !Block1Active;

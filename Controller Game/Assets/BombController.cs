@@ -20,6 +20,7 @@ public class BombController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        //if the collision is with the player then it will take a health and deactive the bomb. 
         if (collision.gameObject.tag == ("Player"))
         {
             PlayerOBJ.GetComponent<PlayerController>().Health -= 1;

@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //just simple movement to make the player move across the screen at a steady pace
+        //will also speed up the player as more and more levels are completed
         Speed = 1 + levelsComplete;
         transform.position = transform.position + new Vector3(Speed, 0, 0) * Time.deltaTime;
         JumpChance();
@@ -45,6 +47,7 @@ public class PlayerController : MonoBehaviour
 
     void JumpChance()
     {
+        //generates a random number, if it generates the right number then the player will jump. 
         JumpChanceCountdown = JumpChanceCountdown -= Time.deltaTime;
 
         if (JumpChanceCountdown <= 0f)
@@ -66,11 +69,13 @@ public class PlayerController : MonoBehaviour
     }
     public void Jump()
     {
+        //makes player jump by adding force upwards to the rigidbody
         PlayerRb.AddForce(new Vector2(1, 7), ForceMode2D.Impulse);
     }
 
     void HealthCheck()
     {
+        // if the health is less than 0, it will -1 life and set health back to 5
         if (Health <= 0)
         {
             Lives -= 1;
@@ -79,6 +84,7 @@ public class PlayerController : MonoBehaviour
     }
     void CoinCheck()
     {
+        //if you collect 5 coins then coins are set to 0 and a life is added
         if (Coins >= 5)
         {
             Coins = 0;
@@ -88,6 +94,7 @@ public class PlayerController : MonoBehaviour
 
     void LivesCheck()
     {
+        //if lives are 0, activate the death screen
         if (Lives <= 0)
         {
             GameCan.SetActive(false);
@@ -99,6 +106,7 @@ public class PlayerController : MonoBehaviour
 
     void TextUpdate()
     {
+        //updates texts to display counters
         livesText.text = ("Lives = " + Lives + "   Health = " + Health);
         coinText.text = ("Coins = " + Coins);
         LevelsComp.text = ("Levels Completed = " + levelsComplete);
@@ -106,6 +114,7 @@ public class PlayerController : MonoBehaviour
 
     public void MainMenu()
     {
+        //changes scene to the main menu scene
         SceneManager.LoadScene(sceneBuildIndex: 0);
     }
     
